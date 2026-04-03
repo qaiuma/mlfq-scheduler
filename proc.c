@@ -9,7 +9,7 @@
 
 // CPS3250
 // initialize global variables
-int sched_policy = 0; // 0: default round robin; 1: multi-level feedback queue
+int sched_policy = 1; // 0: default round robin; 1: multi-level feedback queue
 int sched_trace_enabled = 1;
 int running_threshold = 2;
 int waiting_threshold = 4;
