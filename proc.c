@@ -487,7 +487,20 @@ int find_index_of_max_wait()
     // find out the one with the max waiting_counter
     // return its index in the wait_ranking_queue
     // or return -1 (not found)
-  return -1;
+if (mlfq.wr_process_count == 0)
+    return -1;
+
+  int max_index = 0;
+  int max_wait = mlfq.wait_ranking_queue[0]->waiting_counter;
+
+  for (int i = 1; i < mlfq.wr_process_count; i++) {
+    if (mlfq.wait_ranking_queue[i]->waiting_counter > max_wait) {
+      max_wait = mlfq.wait_ranking_queue[i]->waiting_counter;
+      max_index = i;
+    }
+  }
+
+  return max_index;
 }
 
 //PAGEBREAK: 42
